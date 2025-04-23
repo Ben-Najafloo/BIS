@@ -73,45 +73,34 @@ Insert Date Appeal to Prefecture: 4188
 Send Appeal to Prefecture: 4141
 """
 
-
-"""# Alpha Miner"""
-
-# Apply Alpha Miner
-from pm4py.algo.discovery.alpha import algorithm as alpha_miner
+"""Discovery Techniques on Full Log"""
 from pm4py.visualization.petrinet import visualizer as pn_visualizer
 
+"""# Alpha Miner"""
+# Apply Alpha Miner
+from pm4py.algo.discovery.alpha import algorithm as alpha_miner
 net, initial_marking, final_marking = alpha_miner.apply(filtered_log)
-
 # Visualize
 gviz = pn_visualizer.apply(net, initial_marking, final_marking)
 pn_visualizer.view(gviz)
 
 """# Inductive Miner"""
-
 from pm4py.algo.discovery.inductive import algorithm as inductive_miner
-from pm4py.visualization.petrinet import visualizer as pn_visualizer
-
 net, initial_marking, final_marking = inductive_miner.apply(filtered_log)
-
 # Visualize the Petri net
 gviz = pn_visualizer.apply(net, initial_marking, final_marking)
 pn_visualizer.view(gviz)
 
 """# Heuristic Miner"""
-
 from pm4py.algo.discovery.heuristics import algorithm as heuristic_miner
-from pm4py.visualization.petrinet import visualizer as pn_visualizer
-
 # Apply Heuristic Miner
 net, initial_marking, final_marking = heuristic_miner.apply(filtered_log)
-
 # Visualize the Petri net
 gviz = pn_visualizer.apply(net, initial_marking, final_marking)
 pn_visualizer.view(gviz)
 
 
 """Process Tree"""
-
 from pm4py.algo.discovery.inductive import algorithm as inductive_miner
 from pm4py.visualization.process_tree import visualizer as pt_visualizer
 
